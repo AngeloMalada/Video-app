@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .centerDiv {
+    @apply flex justify-center items-center;
+  }
+  .desktopRes {
+    @apply w-[1280px] h-[720px];
+  }
+
+  .startDiv {
+    @apply flex justify-around items-start;
+  }
+
+  .endDiv {
+    @apply flex justify-center items-end;
+  }
+
+  .paddingStandard {
+    @apply p-10;
+  }
+
+  .gapStandard {
+    @apply gap-10;
+  }
+  .tabletRes {
+    @apply w-[768px] h-[432px];
+  }
+
+  .mobileRes {
+    @apply w-[300px] h-[400px];
+  }
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
