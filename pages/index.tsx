@@ -11,13 +11,23 @@ type Props = {
 };
 
 function HomePage({ comments }: Props) {
+  const [isHamburger, setIsHamburger] = React.useState(false);
+  const handleClick = () => {
+    setIsHamburger((prev) => !prev);
+  };
   return (
-    <div className=" grid grid-cols-1 gap-x-6 p-10 md:grid-cols-4 ">
-      <GridVideoComponent />
-      <GridVideoComponent />
-      <GridVideoComponent />
-      <GridVideoComponent />
-      <GridVideoComponent />
+    <div className="flex flex-row">
+      {isHamburger && <div className="bg-blue-500 w-[30%] "></div>}
+      <div
+        className=" grid grid-cols-1 gap-x-6 p-10 md:grid-cols-4  "
+        onClick={handleClick}
+      >
+        <GridVideoComponent />
+        <GridVideoComponent />
+        <GridVideoComponent />
+        <GridVideoComponent />
+        <GridVideoComponent />
+      </div>
     </div>
   );
 }
