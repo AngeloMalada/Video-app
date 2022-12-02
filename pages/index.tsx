@@ -3,33 +3,55 @@ import Comments from "../components/Comments";
 import Suggestions from "../components/Suggestions";
 import VideoCard from "../components/VideoCard";
 import { GetServerSideProps } from "next";
-import { comments } from "../types";
+
 import GridVideoComponent from "../components/GridVideoComponent";
+import axios from "axios";
+import { Video } from "../types";
 
 type Props = {
-  comments: comments[];
+  videos: Video[];
 };
 
-function HomePage({ comments }: Props) {
-  const [isHamburger, setIsHamburger] = React.useState(false);
-  const handleClick = () => {
-    setIsHamburger((prev) => !prev);
+function HomePage({ videos }: Props) {
+  console.log(videos);
+  const [hamburger, setHamburger] = React.useState(false);
+  const handleHamburger = () => {
+    setHamburger(!hamburger);
   };
   return (
     <div className="flex flex-row">
-      {isHamburger && <div className="bg-blue-500 w-[30%] "></div>}
+      {hamburger && <div className="bg-blue-500 w-[30%]">dasds</div>}
       <div
-        className=" grid grid-cols-1 gap-x-6 p-10 md:grid-cols-4  "
-        onClick={handleClick}
+        onClick={handleHamburger}
+        className=" grid grid-cols-1 gap-x-6 p-10 md:grid-cols-4 mx-auto "
       >
-        <GridVideoComponent />
-        <GridVideoComponent />
-        <GridVideoComponent />
-        <GridVideoComponent />
-        <GridVideoComponent />
+        {/* <div className=" flex flex-col lg:flex-row flex-wrap  w-full mt-10 justify-between items-center mx-auto gap-6 px-10"> */}
+        {videos?.map((video) => (
+          <GridVideoComponent key={video._id} video={video} />
+        ))}
       </div>
     </div>
   );
 }
+
+export const getServerSideProps = async () => {
+  // const { data } = await axios.get("http://localhost:3000/api/video");
+
+  // return {
+  //   props: {
+  //     videos: data,
+  //   },
+  // };
+
+  //fetch data from /api/video
+  const res = await fetch("http://localhost:3000/api/video");
+  const videos: Video[] = await res.json();
+
+  return {
+    props: {
+      videos,
+    },
+  };
+};
 
 export default HomePage;

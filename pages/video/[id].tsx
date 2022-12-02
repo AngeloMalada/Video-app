@@ -3,37 +3,45 @@ import Comments from "../../components/Comments";
 import Suggestions from "../../components/Suggestions";
 import VideoCard from "../../components/VideoCard";
 import { GetServerSideProps } from "next";
-import { comments } from "../../types";
+
 import VideoDetails from "../../components/VideoDetails";
 import VideoDescription from "../../components/VideoDescription";
 import Category from "../../components/Category";
+import axios from "axios";
+import { Video } from "../../types";
 
 type Props = {
-  comments: comments[];
+  videoDetails: Video[];
 };
 
-function VideoPage({ comments }: Props) {
+function VideoPage({ videoDetails }: Props) {
+  console.log(videoDetails);
   return (
-    <div className=" flex justify-center items-center flex-col lg:flex-row  lg:startDiv min-h-screen paddingStandard gapStandard lg:pt-[10%]">
+    <div className=" flex justify-center items-center flex-col lg:flex-row  lg:startDiv min-h-screen paddingStandard gapStandard">
       <div className="">
-        <VideoCard />
-        <VideoDetails />
-        <VideoDescription />
+        <VideoCard video={videoDetails} />
+        <VideoDetails video={videoDetails} />
+        <VideoDescription video={videoDetails} />
         <Category />
-        <Comments comments={comments} />
+        <Comments videoDetails={videoDetails} />
       </div>
       <Suggestions />
     </div>
   );
 }
 
-export const getServerSideProps = async () => {
-  const comments: comments[] = await fetch(
-    "https://jsonplaceholder.typicode.com/comments"
-  ).then((res) => res.json());
+export const getServerSideProps = async ({
+  params: { id },
+}: {
+  params: { id: string };
+}) => {
+  // const { data } = await axios.get(`http://localhost:3000/api/video/${id}`);
+  const res = await fetch(`http://localhost:3000/api/video/${id}`);
+  const videoDetails: Video[] = await res.json();
+
   return {
     props: {
-      comments,
+      videoDetails,
     },
   };
 };

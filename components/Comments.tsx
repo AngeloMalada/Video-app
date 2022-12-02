@@ -1,23 +1,23 @@
 import { GetServerSideProps } from "next";
 import React from "react";
-import { comments } from "../types";
+import { Video } from "../types";
+
 import Comment from "./Comment";
 
 type Props = {
-  comments: comments[];
+  videoDetails: Video[];
 };
 
-function Comments({ comments }: Props) {
+function Comments({ videoDetails }: Props) {
   return (
     <div className="mt-2">
       <span>2000 comments</span>
       <div className="flex flex-col gap-8">
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
-        <Comment />
+        {videoDetails.map((comment: any) => (
+          <Comment comment={comment} />
+        ))}
+
+        {/* <Comment comment={comments} /> */}
       </div>
     </div>
   );

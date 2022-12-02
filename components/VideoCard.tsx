@@ -7,7 +7,10 @@ import { BiFullscreen } from "react-icons/bi";
 import { BiPause } from "react-icons/bi";
 import { BsFillVolumeUpFill } from "react-icons/bs";
 import { BsPlayFill } from "react-icons/bs";
-type Props = {};
+import { Video } from "../types";
+type Props = {
+  video: Video[];
+};
 
 interface HTMLVideo extends HTMLVideoElement {
   requestFullscreen(): Promise<void>;
@@ -15,7 +18,7 @@ interface HTMLVideo extends HTMLVideoElement {
   mozRequestFullScreen(): Promise<void>;
 }
 
-function VideoCard({}: Props) {
+function VideoCard({ video }: Props) {
   const videoRef = React.useRef<HTMLVideo>(null);
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isMuted, setIsMuted] = React.useState(false);
@@ -146,7 +149,7 @@ function VideoCard({}: Props) {
   //add seek bar functionality on click
 
   return (
-    <div className="  md:tabletRes lg:tabletRes flex flex-col pt-10 ">
+    <div className=" w-[300px] mx-auto md:tabletRes lg:tabletRes flex flex-col pt-10 ">
       <div
         id="videoContainer"
         className="w-full h-full relative object-cover  "
@@ -162,7 +165,7 @@ function VideoCard({}: Props) {
         >
           <video
             ref={videoRef}
-            src=""
+            src={video[0]?.video?.asset?.url}
             onContextMenu={(e) => e.preventDefault()}
             className="h-full w-full object-cover rounded-xl bg-gray-200"
           ></video>
