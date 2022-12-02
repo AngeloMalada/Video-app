@@ -36,7 +36,9 @@ export const getServerSideProps = async ({
   params: { id: string };
 }) => {
   // const { data } = await axios.get(`http://localhost:3000/api/video/${id}`);
-  const res = await fetch(`http://localhost:3000/api/video/${id}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/video/${id}`
+  );
   const videoDetails: Video[] = await res.json();
 
   return {

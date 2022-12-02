@@ -44,7 +44,7 @@ export const getServerSideProps = async () => {
   // };
 
   //fetch data from /api/video
-  const res = await fetch("http://localhost:3000/api/video");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/video`);
   const videos: Video[] = await res.json();
 
   return {
