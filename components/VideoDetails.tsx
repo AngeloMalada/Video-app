@@ -28,7 +28,7 @@ function VideoDetails({ video }: Props) {
             <button className="bg-red-500 p-2 rounded-xl">subscribe</button>
           </div>
         </div>
-
+        {/* channel info and likes */}
         <div className="flex flex-row gap-2">
           <AiFillLike className="text-[#f00] w-8 h-8" />
           <AiFillDislike className="text-[#f00] w-8 h-8" />

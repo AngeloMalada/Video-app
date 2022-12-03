@@ -11,9 +11,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "GET") {
-    //fix typescript error
+    //fetch a single video with the id from the query
     const { id }: { id: string | string[] } = req.query as unknown as Props;
-    //fixaj error
 
     const query = videoDetailQuery(id);
     const data = await sanityClient.fetch(query);

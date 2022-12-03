@@ -7,6 +7,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "GET") {
+    // fetch all videos
     const query = allVideosQuery();
     const data = await sanityClient.fetch(query);
     console.log(data);

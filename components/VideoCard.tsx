@@ -27,6 +27,8 @@ function VideoCard({ video }: Props) {
   const [width, setWidth] = React.useState("100%");
   const [isHover, setIsHover] = React.useState(true);
 
+  //play and pause functionality
+
   const handlePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -39,6 +41,7 @@ function VideoCard({ video }: Props) {
     }
   };
 
+  //fullscreen functionality
   const handleFs = () => {
     if (isFullScreen) {
       document.webkitExitFullscreen();
@@ -62,6 +65,7 @@ function VideoCard({ video }: Props) {
     setIsFullScreen(!isFullScreen);
   };
 
+  //mute and unmute functionality
   const handleMute = () => {
     if (videoRef.current) {
       if (isMuted) {
@@ -73,7 +77,7 @@ function VideoCard({ video }: Props) {
       }
     }
   };
-  //exit fullscreen
+  //exit fullscreen functionality on esc key
   React.useEffect(() => {
     const handleFullScreenChange = () => {
       if (document.webkitIsFullScreen) {
@@ -142,14 +146,10 @@ function VideoCard({ video }: Props) {
     };
   }, [isFullScreen]);
 
-  //add seek bar functionality in real time
-
-  //add seek bar functionality
-
-  //add seek bar functionality on click
-
   return (
+    //main container
     <div className=" w-[300px] mx-auto md:tabletRes lg:tabletRes flex flex-col pt-10 ">
+      {/* video container */}
       <div
         id="videoContainer"
         className="w-full h-full relative object-cover  "
@@ -169,6 +169,7 @@ function VideoCard({ video }: Props) {
             onContextMenu={(e) => e.preventDefault()}
             className="h-full w-full object-cover rounded-xl bg-gray-200"
           ></video>
+          {/* buttons in video container */}
           {isHover && (
             <div className=" border-t-4  border-gray-500 absolute bottom-0 p-0 left-0 flex w-[100%] flex-row justify-between  paddingStandard  ">
               <div className="flex flex-row gap-4 p-2 items-center">
@@ -188,7 +189,6 @@ function VideoCard({ video }: Props) {
                 </button>
               </div>
 
-              {/* display seek bar */}
               <div className="p-2 flex justify-center">
                 <button onClick={handleFs} className="h-[32px] w-[32px]">
                   <BiFullscreen className="text-white h-8 w-8 " />

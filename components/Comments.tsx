@@ -13,11 +13,10 @@ function Comments({ videoDetails }: Props) {
     <div className="mt-2">
       <span>2000 comments</span>
       <div className="flex flex-col gap-8">
+        {/* mapped object of videos  */}
         {videoDetails.map((comment: any) => (
           <Comment comment={comment} />
         ))}
-
-        {/* <Comment comment={comments} /> */}
       </div>
     </div>
   );

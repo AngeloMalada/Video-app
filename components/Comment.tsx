@@ -10,6 +10,7 @@ function Comment({ comment }: Props) {
   console.log(comment);
   return (
     <>
+      {/* mapped object of comments inside of video */}
       {comment.comments.map((comment: any) => (
         <div
           key={comment._id}
@@ -25,7 +26,6 @@ function Comment({ comment }: Props) {
           <div>
             <div className="flex flex-row gap-2">
               <span>{comment.uploadedBy.userName}</span>
-              {/* <span>{comment[0].comments[0]._createdAt.substring(0, 10)}</span> */}
             </div>
             <span>{comment.comment}</span>
             <div>
