@@ -1,4 +1,4 @@
-Tech stack
+#Tech stack
 
 - NextJs
 - React
@@ -34,15 +34,15 @@ npm run dev
 
 ```
 
-Features
+#Features
 
-*Typescript
-*Tailwind css used for UI
-*User state managment with zustand
-*Video player with controls for play/pause(space), mute/unmute(m), fullscreen(f)
-*Auth with google sign in
-*Users can view and upload videos,subscribe to channels,like videos,comment on videos
+- Typescript for type safety
+- Tailwind css used for UI
+- User state managment with zustand
+- Video player with controls for play/pause(space), mute/unmute(m), fullscreen(f)
+- Auth with google sign in
+- Users can view and upload videos,subscribe to channels,like videos,comment on videos
 
-Contact
+#Contact
 
 - Email:angelo.malada@gmail.com
