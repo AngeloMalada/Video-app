@@ -1,4 +1,4 @@
-#Tech stack
+# Tech stack
 
 - NextJs
 - React
@@ -8,7 +8,7 @@
 - Zustand
 - React router
 
-Installation
+# Installation
 
 Clone the repo
 
@@ -34,7 +34,7 @@ npm run dev
 
 ```
 
-#Features
+# Features
 
 - Typescript for type safety
 - Tailwind css used for UI
@@ -43,6 +43,6 @@ npm run dev
 - Auth with google sign in
 - Users can view and upload videos,subscribe to channels,like videos,comment on videos
 
-#Contact
+# Contact
 
 - Email:angelo.malada@gmail.com
