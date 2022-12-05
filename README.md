@@ -35,3 +35,14 @@ npm run dev
 ```
 
 Features
+
+*Typescript
+*Tailwind css used for UI
+*User state managment with zustand
+*Video player with controls for play/pause(space), mute/unmute(m), fullscreen(f)
+*Auth with google sign in
+*Users can view and upload videos,subscribe to channels,like videos,comment on videos
+
+Contact
+
+- Email:angelo.malada@gmail.com
