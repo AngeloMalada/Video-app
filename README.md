@@ -45,4 +45,4 @@ npm run dev
 
 # Contact
 
-- Email:angelo.malada@gmail.com
+- Email: angelo.malada@gmail.com
